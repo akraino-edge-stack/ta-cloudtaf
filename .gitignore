@@ -1,0 +1,16 @@
+*.swp
+*.swo
+*.swn
+*.tox/
+*.pyc
+log.html
+output.xml
+report.html
+.venv/
+libraries/cloudtaflibs.egg-info/
+.cache/
+.coverage.py27
+.coveragerc
+coverage-html-py27/
+rfcli_output/
+targets/*.ini

@@ -1,0 +1,7 @@
+{
+  "type": "network",
+  "enabled": true,
+  "description": "OpenStack Networking",
+  "name": "neutron",
+  "id": "a3bf29cfe238ab037ad235236a35323c"
+}
