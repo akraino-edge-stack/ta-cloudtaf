@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "18008027_bb86cfde",
+        "filename": "libraries/cluster/testutils/user_config.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 217
+      },
+      "writtenOn": "2019-08-06T10:22:41Z",
+      "side": 1,
+      "message": "Copy right message this from this file",
+      "revId": "d448b9388fd9cb3732e35996b98f493a5a5921d4",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7fc5960d_1cef316b",
+        "filename": "libraries/openstackcli/service_show_neutron_expected_output.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 217
+      },
+      "writtenOn": "2019-08-06T10:22:41Z",
+      "side": 1,
+      "message": "is it possible to have copy right message in this file if yes can you add?",
+      "revId": "d448b9388fd9cb3732e35996b98f493a5a5921d4",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
