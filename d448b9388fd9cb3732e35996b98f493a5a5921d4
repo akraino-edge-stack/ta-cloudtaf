@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8121c51f_0361e1cf",
+        "filename": "libraries/cluster/testutils/user_config.yaml",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 242
+      },
+      "writtenOn": "2019-08-07T06:17:01Z",
+      "side": 1,
+      "message": "I have understood that the copyright notice is not required to every single file of the work. Therefore, I have not added to copyright to every unit test mock configuration file or similar.",
+      "parentUuid": "18008027_bb86cfde",
+      "revId": "d448b9388fd9cb3732e35996b98f493a5a5921d4",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "7fc5960d_1cef316b",
         "filename": "libraries/openstackcli/service_show_neutron_expected_output.txt",
         "patchSetId": 2
