@@ -51,6 +51,24 @@
       "revId": "d448b9388fd9cb3732e35996b98f493a5a5921d4",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16f097ef_baac3431",
+        "filename": "libraries/openstackcli/service_show_neutron_expected_output.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 242
+      },
+      "writtenOn": "2019-08-07T06:19:52Z",
+      "side": 1,
+      "message": "This is a unit test mock configuration file. I do not think we need to add copyright to this file.",
+      "parentUuid": "7fc5960d_1cef316b",
+      "revId": "d448b9388fd9cb3732e35996b98f493a5a5921d4",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
     }
   ]
 }
