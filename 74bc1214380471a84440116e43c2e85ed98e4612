@@ -22,6 +22,30 @@
       "revId": "74bc1214380471a84440116e43c2e85ed98e4612",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4cb7d6f3_a30e9cff",
+        "filename": "testcases/post-install/post_install.robot",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 204
+      },
+      "writtenOn": "2019-08-13T08:24:12Z",
+      "side": 1,
+      "message": "In general in all CI related things I like to decide when things change. Yes, I would keep this hard coded so that changes in the internet do not affect that much on the test case execution today vs tomorrow.",
+      "parentUuid": "6e021683_18474b69",
+      "range": {
+        "startLine": 32,
+        "startChar": 53,
+        "endLine": 32,
+        "endChar": 55
+      },
+      "revId": "74bc1214380471a84440116e43c2e85ed98e4612",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
     }
   ]
 }
