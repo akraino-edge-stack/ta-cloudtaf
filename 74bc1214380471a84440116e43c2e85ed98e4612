@@ -46,6 +46,29 @@
       "revId": "74bc1214380471a84440116e43c2e85ed98e4612",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1dccc52d_dd0b60b2",
+        "filename": "testcases/post-install/post_install.robot",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 187
+      },
+      "writtenOn": "2019-08-16T13:53:48Z",
+      "side": 1,
+      "message": "you should check only for Ready nodes so we would notice if the cluster is in an unhealthy state for some reason after the deployment.",
+      "range": {
+        "startLine": 65,
+        "startChar": 4,
+        "endLine": 65,
+        "endChar": 70
+      },
+      "revId": "74bc1214380471a84440116e43c2e85ed98e4612",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
     }
   ]
 }
