@@ -1,0 +1,70 @@
+---
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: custommetrics
+  namespace: kube-system
+spec:
+  selector:
+    matchLabels:
+      k8s-app: custommetrics
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: custommetrics
+        k8s-app: custommetrics
+      annotations:
+        prometheus.io/scrape: 'true'
+        danm.k8s.io/interfaces: |
+          [
+            {
+              "network":"flannel"
+            }
+          ]
+    spec:
+      containers:
+      - name: custommetricsd
+        image: registry.kube-system.svc.rec.io:5555/custom_metrics_test:0.1
+        imagePullPolicy: Always
+        command:
+          - python
+          - custom_metrics_test.py
+        volumeMounts:
+          - name: metadata
+            mountPath: /etc/custommetricsd/metadata
+            readOnly: true
+        ports:
+        - containerPort: 9100
+          protocol: TCP
+        readinessProbe:
+          httpGet:
+            path: /readyz
+            port: 9100
+          initialDelaySeconds: 1
+          periodSeconds: 2
+          failureThreshold: 1
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 9100
+          initialDelaySeconds: 1
+          periodSeconds: 3
+          failureThreshold: 2
+        resources:
+          requests:
+            memory: "32Mi"
+            cpu: "1m"
+          limits:
+            memory: "256Mi"
+            cpu: "100m"
+      volumes:
+        - name: metadata
+          downwardAPI:
+            items:
+              - path: "labels"
+                fieldRef:
+                  fieldPath: metadata.labels
+              - path: "annotations"
+                fieldRef:
+                  fieldPath: metadata.annotations
