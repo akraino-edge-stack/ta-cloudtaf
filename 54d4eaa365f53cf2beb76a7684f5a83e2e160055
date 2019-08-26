@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f721d42_c4c0f8cf",
+        "filename": "testcases/pm-support/pm-suppot.robot",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 187
+      },
+      "writtenOn": "2019-08-26T13:46:59Z",
+      "side": 1,
+      "message": "This seems to be the core of the tc, so why is it commented out?",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 41
+      },
+      "revId": "54d4eaa365f53cf2beb76a7684f5a83e2e160055",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
