@@ -50,6 +50,24 @@
       "revId": "81056eb57bf93980492ba2e28925b31be38e3b5f",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da22cf19_592604aa",
+        "filename": "testcases/basic-funcional/basic-funcional.robot",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-08-30T13:59:22Z",
+      "side": 1,
+      "message": "first of all, +1 to Paul.\n\nsecondly:\nwhy is it even expected that a random Pod on REC has external network connectivity by default?\ndoes the test pod has external network connectivity explicitly configured? or this TC basically also only exploits the absence of the iptables rule we recently discussed in REC-414?\n\nthirdly:\nwhy would the REC infra DNS for sure be able to even resolve www.google.com? are you assuming upstream nameservers are always configured, for all RECs?\n\nfor me it looks like the TC takes the presence of optional features for granted, and as a result it will be brittle. once we install an infra with a different configuration the test will break",
+      "parentUuid": "2adbf96b_3c7e16ee",
+      "revId": "81056eb57bf93980492ba2e28925b31be38e3b5f",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
     }
   ]
 }
