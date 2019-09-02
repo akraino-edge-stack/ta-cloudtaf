@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4a85d4bc_87dacc78",
+        "filename": "testcases/kube-namespace/kube-namespace.robot",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 187
+      },
+      "writtenOn": "2019-09-02T09:07:21Z",
+      "side": 1,
+      "message": "Have you tried this out? I\u0027m not sure this would work. Usually the keyword definitions go here and the testcases are just calling them not the other way around. Also if it does work it still breaks one of the main principle of testcase writing that states that all TCs should be self contained to prevent any stale resources messing up the next testcase result.",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 16
+      },
+      "revId": "bc00c9bbf62c4fdf86f784f10e3ec99a67f811cf",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
