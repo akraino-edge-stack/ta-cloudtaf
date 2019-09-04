@@ -22,6 +22,30 @@
       "revId": "bc00c9bbf62c4fdf86f784f10e3ec99a67f811cf",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c24a4379_39cb73a1",
+        "filename": "testcases/kube-namespace/kube-namespace.robot",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 47
+      },
+      "writtenOn": "2019-09-04T03:39:39Z",
+      "side": 1,
+      "message": "Addressed the comment and fixed it in the patchset 3.",
+      "parentUuid": "4a85d4bc_87dacc78",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 16
+      },
+      "revId": "bc00c9bbf62c4fdf86f784f10e3ec99a67f811cf",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
     }
   ]
 }
