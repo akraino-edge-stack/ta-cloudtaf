@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "95bcf5cb_b49ef384",
+        "filename": "testcases/kube-service/kube-service.robot",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 187
+      },
+      "writtenOn": "2019-09-06T13:34:49Z",
+      "side": 1,
+      "message": "you could also use the \u0027describe\u0027 command here",
+      "range": {
+        "startLine": 40,
+        "startChar": 35,
+        "endLine": 40,
+        "endChar": 111
+      },
+      "revId": "8e71791c06b6aa309f88689b6cd17e3908458450",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02ada0b8_aa813c4c",
+        "filename": "testcases/kube-service/kube-service.robot",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 187
+      },
+      "writtenOn": "2019-09-06T13:34:49Z",
+      "side": 1,
+      "message": "This should be one TC with multiple steps and verification. Also the pod and service creation/deletion should be in the Test Setup/Teardown so in case one of the steps fails no hanging resources are left behind on the test system.",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 22
+      },
+      "revId": "8e71791c06b6aa309f88689b6cd17e3908458450",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
