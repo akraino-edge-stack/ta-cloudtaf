@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "14e59702_1e5b4eff",
+        "filename": "testcases/kube-namespace/kube-namespace.robot",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 187
+      },
+      "writtenOn": "2019-09-06T13:43:14Z",
+      "side": 1,
+      "message": "This should be one TC with multiple steps. Also the resource creation/deletion should be in the TC\u0027s setup/teardown. This change would improve the TC robustness and execution time. For example if the namespace creation fails then the later steps shouldn\u0027t be even called since all of them would fail for sure. The same applies for the resource deletion.",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 20
+      },
+      "revId": "97debf8f0174a205e2209229ca2ee729ad0174c9",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
