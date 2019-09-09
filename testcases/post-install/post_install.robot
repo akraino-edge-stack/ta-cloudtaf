@@ -29,7 +29,7 @@ Testing Deployment
     Should contain    ${out}    ${search}
 
 Testing Docker
-    ${search}=     set variable    Docker version 18.09.2
+    ${search}=     set variable    Docker version 19.03.2
     ${command}=    set variable    docker --version
     ${out}=    ssh.Execute Command    ${command}    controller-1
     log    ${out}
