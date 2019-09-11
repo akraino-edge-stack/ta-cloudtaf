@@ -28,6 +28,11 @@ Testing Deployment
     log    ${out}
     Should contain    ${out}    ${search}
 
+Looking up LF Jenkins successful build iso number
+    ${command}=    set variable     rpm -qa |grep  product-manifest | sed -E 's/^[^-]*-[^-]*-([^-]*)-.*$/\1/'
+    ${out}=    ssh.Execute Command    ${command}    controller-1
+    log    ${out}
+
 Testing Docker
     ${search}=     set variable    Docker version 19.03.2
     ${command}=    set variable    docker --version
@@ -89,6 +94,8 @@ Testing Helm Caas infra Status
 *** Test Cases ***
 Verify Deployment
     Testing Deployment
+Verify Image Build Number
+    Looking up  LF Jenkins successful build iso number
 Verify Docker Version
     Testing Docker
 Verify Kubernetes Clusters
