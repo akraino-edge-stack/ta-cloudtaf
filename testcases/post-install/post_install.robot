@@ -95,7 +95,7 @@ Testing Helm Caas infra Status
 Verify Deployment
     Testing Deployment
 Verify Image Build Number
-    Looking up  LF Jenkins successful build iso number
+    Looking up LF Jenkins successful build iso number
 Verify Docker Version
     Testing Docker
 Verify Kubernetes Clusters
