@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f990630e_a4e4f40e",
+        "filename": "testcases/post-install/post_install.robot",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 187
+      },
+      "writtenOn": "2019-09-12T11:29:29Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 31,
+        "startChar": 14,
+        "endLine": 31,
+        "endChar": 20
+      },
+      "revId": "348dc279bcc4d3d6c3aaba531c959d281fe0ceb1",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
