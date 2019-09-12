@@ -29,7 +29,7 @@ Testing Deployment
     Should contain    ${out}    ${search}
 
 Looking up LF Jenkins successful build iso number
-    ${command}=    set variable     rpm -qa |grep  product-manifest | sed -E 's/^[^-]*-[^-]*-([^-]*)-.*$/\1/'
+    ${command}=    set variable     rpm -qa |grep product-manifest | sed -E 's/^[^-]*-[^-]*-([^-]*)-.*$/\1/'
     ${out}=    ssh.Execute Command    ${command}    controller-1
     log    ${out}
 
