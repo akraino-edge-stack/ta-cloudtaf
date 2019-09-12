@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7771ca74_4fba36ef",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2019-09-12T15:30:10Z",
+      "side": 1,
+      "message": "For future reference, please use the imperative mood in the subject line. For example \"Correct typo in post-install testcase\".\n\nThis is what the output of \"git log --oneline\" looks like for this repository. The last couple commits are not a very good overview of what test cases have been changed.\n\n ab8eb90 (HEAD -\u003e master, origin/master, origin/HEAD) Merge \"typo in grep command\"\n b95183a typo in grep command\n a2f710b typo in one of the test cases\n 7419233 add test case to look for iso build number\n 921451c update docker version\n fab50fe upload pm-support\n 15c350f upload post-install\n d448b93 Add cloudtaf framework\n 07c5f13 Initial empty repository",
+      "revId": "a2f710ba7bc593fe070bf467e68767fd3b3775c8",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    }
+  ]
+}
