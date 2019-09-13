@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad79af50_0e174b2b",
+        "filename": "testcases/post-install/post_install.robot",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 187
+      },
+      "writtenOn": "2019-09-13T13:34:45Z",
+      "side": 1,
+      "message": "are you sure this is the right command?",
+      "range": {
+        "startLine": 32,
+        "startChar": 36,
+        "endLine": 32,
+        "endChar": 80
+      },
+      "revId": "88e80c49fffde99796163683edbd5c0a7efe59a9",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
