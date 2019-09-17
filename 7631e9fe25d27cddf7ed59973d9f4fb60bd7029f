@@ -45,6 +45,29 @@
       "revId": "7631e9fe25d27cddf7ed59973d9f4fb60bd7029f",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b2116ae_fcc0688d",
+        "filename": "testcases/kube-service/kube-service.robot",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 208
+      },
+      "writtenOn": "2019-09-17T20:15:57Z",
+      "side": 1,
+      "message": "Needs to reference a variable like test base directory to look up the yaml file when running from jenkins",
+      "range": {
+        "startLine": 34,
+        "startChar": 43,
+        "endLine": 34,
+        "endChar": 49
+      },
+      "revId": "7631e9fe25d27cddf7ed59973d9f4fb60bd7029f",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
     }
   ]
 }
