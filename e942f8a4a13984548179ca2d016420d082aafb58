@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "11fc1395_1fd50cbe",
+        "filename": "testcases/test-registry/test-registry.robot",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 186
+      },
+      "writtenOn": "2019-09-18T20:20:22Z",
+      "side": 1,
+      "message": "There is no need for it, since REC uses certificate based authentication on registry, and the admin user already configured to use it.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 28
+      },
+      "revId": "e942f8a4a13984548179ca2d016420d082aafb58",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "467cd22d_9936c108",
+        "filename": "testcases/test-registry/test-registry.robot",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 186
+      },
+      "writtenOn": "2019-09-18T20:20:22Z",
+      "side": 1,
+      "message": "From where this container image will come from? There is no \"Setup\" keyword, and also there is no reference for it.",
+      "range": {
+        "startLine": 35,
+        "startChar": 47,
+        "endLine": 35,
+        "endChar": 95
+      },
+      "revId": "e942f8a4a13984548179ca2d016420d082aafb58",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "022a5dcb_68c092a1",
+        "filename": "testcases/test-registry/test-registry.robot",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 186
+      },
+      "writtenOn": "2019-09-18T20:20:22Z",
+      "side": 1,
+      "message": "This command deletes from the node\u0027s local host, and not from the registry.",
+      "range": {
+        "startLine": 49,
+        "startChar": 35,
+        "endLine": 49,
+        "endChar": 102
+      },
+      "revId": "e942f8a4a13984548179ca2d016420d082aafb58",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
