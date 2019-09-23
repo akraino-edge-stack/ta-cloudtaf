@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f70e1592_730b8915",
+        "filename": "testcases/kube-namespace/kube-namespace.robot",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2019-09-23T12:15:37Z",
+      "side": 1,
+      "message": "Stylistic question (since I\u0027m not very familiar with Robot) is there a technical reason for these single use variables? Variables (and constants) are very important when something is going to be reused, but the pattern here seems to be to define search and command, use them once and then redefine them in the next test case. I think this would be easier to read if it were just:\n\n    ${out}\u003d    ssh.Execute Command    \"kubectl create namespace test-ns\" controller-1\n    log    ${out}\n    Should contain    ${out}    \"namespace/test-ns created\"",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 41
+      },
+      "revId": "e91e27abe48b29cb46ec080626201bc4b576ac8f",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "298e3a96_b1bfc03d",
+        "filename": "testcases/kube-namespace/kube-namespace.robot",
+        "patchSetId": 4
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2019-09-23T12:15:37Z",
+      "side": 1,
+      "message": "Same question as on another commit, is there a reason to not use consistent tense?\n\n    Create Namespace\n    Create pod in specific namespace\n    Check whether pod was created in specific namespace\n    Delete pod\n    Delete namespace",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 20
+      },
+      "revId": "e91e27abe48b29cb46ec080626201bc4b576ac8f",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    }
+  ]
+}
