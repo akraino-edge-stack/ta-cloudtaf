@@ -46,6 +46,30 @@
       "revId": "df19858776e9a60db1d0fc5b2c17f6898b0b9719",
       "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b59030b0_d2122310",
+        "filename": "testcases/kube-namespace/kube-namespace.robot",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 47
+      },
+      "writtenOn": "2019-09-25T13:52:45Z",
+      "side": 1,
+      "message": "yes, I have already test it manually and it is working fine without any issue.",
+      "parentUuid": "a376ab95_81402de6",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 36
+      },
+      "revId": "df19858776e9a60db1d0fc5b2c17f6898b0b9719",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
     }
   ]
 }
