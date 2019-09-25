@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d7aa70f6_43181fbf",
+        "filename": "testcases/logging/logging.robot",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 233
+      },
+      "writtenOn": "2019-09-25T14:47:22Z",
+      "side": 1,
+      "message": "better to use specific namespace \"-n kube-system\" to make sure Pods in other namespace won\u0027t interfere",
+      "range": {
+        "startLine": 27,
+        "startChar": 67,
+        "endLine": 27,
+        "endChar": 83
+      },
+      "revId": "b498392fc84b0824619a0b545f00018cb27b5a50",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d330139f_5017493d",
+        "filename": "testcases/logging/logging.robot",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 233
+      },
+      "writtenOn": "2019-09-25T14:47:22Z",
+      "side": 1,
+      "message": "\"grep Running\" is also needed for such Pod counting, otherwise CrashLoopBackOff is counted",
+      "range": {
+        "startLine": 35,
+        "startChar": 110,
+        "endLine": 35,
+        "endChar": 113
+      },
+      "revId": "b498392fc84b0824619a0b545f00018cb27b5a50",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d014921_439c513d",
+        "filename": "testcases/logging/logging.robot",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 233
+      },
+      "writtenOn": "2019-09-25T14:47:22Z",
+      "side": 1,
+      "message": "such FQDN should be a variable/contant to reuse many places",
+      "range": {
+        "startLine": 58,
+        "startChar": 68,
+        "endLine": 58,
+        "endChar": 117
+      },
+      "revId": "b498392fc84b0824619a0b545f00018cb27b5a50",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61d221bd_35a2a5e7",
+        "filename": "testcases/logging/logging.robot",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 233
+      },
+      "writtenOn": "2019-09-25T14:47:22Z",
+      "side": 1,
+      "message": "ES has no authentication enabled",
+      "range": {
+        "startLine": 58,
+        "startChar": 43,
+        "endLine": 58,
+        "endChar": 66
+      },
+      "revId": "b498392fc84b0824619a0b545f00018cb27b5a50",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
