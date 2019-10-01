@@ -28,7 +28,7 @@ Test Teardown       Run Keywords
 
 *** Variables ***
 
-${test_base_dir}                /cloudtaf/testcases/kube-service
+${test_base_dir}                testcases/kube-service
 ${service_yaml_name}            service.yaml
 
 *** Keywords ***
@@ -42,12 +42,15 @@ Create pod
     Should contain    ${out}    ${search}
 
 Create Kubernetes service with type NodePort
+
     [Arguments]    ${node}=sudo-default
     ${search}=     set variable    service/my-service created
-    ${command}=    set variable    kubectl apply -f ${test_base_dir}/${service_yaml_name}
+    RemoteSession.Copy File To Target    ${test_base_dir}/${service_yaml_name}    target=controller-1
+    ${command}=    set variable    kubectl create -f ${service_yaml_name}
     ${out}=    ssh.Execute Command    ${command}    ${node}
     log    ${out}
     Should contain    ${out}    ${search}
+    ${cleanup_copied_files}=    ssh.Execute Command    rm -rf ${service_yaml_name}    controller-1
 
 Get the Node IP of the pod and Port number of the service and Test the service
 
