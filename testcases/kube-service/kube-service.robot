@@ -20,31 +20,51 @@ Library             crl.remotesession.remotesession.RemoteSession
 Resource            ssh.robot
 Test Setup          Run Keywords
 ...                 ssh.Setup Connections
+...                 Copy artifacts to Target
 ...                 Create pod
 ...                 Create Kubernetes service with type NodePort
 Test Teardown       Run Keywords
 ...                 Delete pod
 ...                 Delete service
+...                 Cleanup artifacts, copied files, and images on Target
 
 *** Variables ***
 
-${test_base_dir}                /cloudtaf/testcases/kube-service
+${test_base_dir}                testcases/kube-service
 ${service_yaml_name}            service.yaml
+${image_name}                   registry.kube-system.svc.rec.io:5555/nginx:1.7
+${artifacts}                    nginx.tar
 
 *** Keywords ***
 
+Copy artifacts to Target
+    
+    ${pull_an_image}=   ssh.Execute command   docker pull nginx     controller-1
+    ${save_image}=    set variable    docker save -o ${artifacts} nginx
+    ${out}=    ssh.Execute Command    ${save_image}    controller-1
+#   RemoteSession.Copy File To Target    ${test_base_dir}/nginx.tar    target=controller-1
+    ${load_image}=    set variable    docker load -i ${artifacts}
+    ${out}=    ssh.Execute Command    ${load_image}    controller-1
+    log    ${out}
+    ${Tag_an_image}=    ssh.Execute Command    docker tag nginx ${image_name}    controller-1
+    log    ${Tag_an_image}
+    ${push_an_image}=    ssh.Execute Command    docker push ${image_name}    controller-1
+    log    ${push_an_image}
+    
 Create pod
     ${search}=     set variable    pod/my-pod created
-    ${command}=    set variable    kubectl run --generator=run-pod/v1 my-pod --image=nginx --port=80 --labels="name=mypod"
+    ${command}=    set variable    kubectl run --generator=run-pod/v1 my-pod --image=${image_name} --port=80 --labels="name=mypod"
     ${out}=    ssh.Execute Command    ${command}    controller-1
     Sleep  30s
     log    ${out}
     Should contain    ${out}    ${search}
 
 Create Kubernetes service with type NodePort
+
     [Arguments]    ${node}=sudo-default
     ${search}=     set variable    service/my-service created
-    ${command}=    set variable    kubectl apply -f ${test_base_dir}/${service_yaml_name}
+    RemoteSession.Copy File To Target    ${test_base_dir}/${service_yaml_name}    target=controller-1
+    ${command}=    set variable    kubectl create -f ${service_yaml_name}
     ${out}=    ssh.Execute Command    ${command}    ${node}
     log    ${out}
     Should contain    ${out}    ${search}
@@ -77,6 +97,13 @@ Delete service
     log    ${out}
     Should contain    ${out}    ${search}
 
+Cleanup artifacts, copied files, and images on Target
+
+   ${cleanup_copied_files}=    ssh.Execute Command    rm -rf ${service_yaml_name}    controller-1
+   ${remove_images}=    set variable    docker image rm nginx | docker rmi ${image_name}
+   ${out}=    ssh.Execute Command    ${remove_images}    controller-1
+   ${remove_artifacts}=    ssh.Execute Command    rm -rf ${artifacts}    controller-1
+   
 *** Test Cases ***
 Verify creating and testing services
     Get the Node IP of the pod and Port number of the service and Test the service
