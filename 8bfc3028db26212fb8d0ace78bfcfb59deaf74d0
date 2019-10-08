@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "45014c52_a2e3913e",
+        "filename": "testcases/basic-functional/dns.robot",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 186
+      },
+      "writtenOn": "2019-10-08T15:05:09Z",
+      "side": 1,
+      "message": "Static manifests stored with TCs would be better, so it won\u0027t depend on internet connectivity.",
+      "range": {
+        "startLine": 33,
+        "startChar": 52,
+        "endLine": 33,
+        "endChar": 98
+      },
+      "revId": "8bfc3028db26212fb8d0ace78bfcfb59deaf74d0",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e410f663_23abf28f",
+        "filename": "testcases/basic-functional/dns.robot",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 186
+      },
+      "writtenOn": "2019-10-08T15:05:09Z",
+      "side": 1,
+      "message": "Static manifest files here too.",
+      "range": {
+        "startLine": 44,
+        "startChar": 61,
+        "endLine": 44,
+        "endChar": 123
+      },
+      "revId": "8bfc3028db26212fb8d0ace78bfcfb59deaf74d0",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d61b2ba_e0f5b90c",
+        "filename": "testcases/basic-functional/dns.robot",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 186
+      },
+      "writtenOn": "2019-10-08T15:05:09Z",
+      "side": 1,
+      "message": "I believe this domain name is invalid in default REC installation. `apiserver.${DOMAIN}` is one domain which is surely present.",
+      "range": {
+        "startLine": 54,
+        "startChar": 81,
+        "endLine": 54,
+        "endChar": 99
+      },
+      "revId": "8bfc3028db26212fb8d0ace78bfcfb59deaf74d0",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "afef130e_f537e9fc",
+        "filename": "testcases/basic-functional/dns.robot",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 186
+      },
+      "writtenOn": "2019-10-08T15:05:09Z",
+      "side": 1,
+      "message": "This should either:\n* match for positive output/success\n* check the command\u0027s return code \nFailing nslookup command has no output \"command terminated with exit code 1\".",
+      "range": {
+        "startLine": 55,
+        "startChar": 4,
+        "endLine": 57,
+        "endChar": 55
+      },
+      "revId": "8bfc3028db26212fb8d0ace78bfcfb59deaf74d0",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "791267a6_9d2320c1",
+        "filename": "testcases/basic-functional/dns.robot",
+        "patchSetId": 4
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 186
+      },
+      "writtenOn": "2019-10-08T15:05:09Z",
+      "side": 1,
+      "message": "The same as above.",
+      "range": {
+        "startLine": 62,
+        "startChar": 4,
+        "endLine": 64,
+        "endChar": 55
+      },
+      "revId": "8bfc3028db26212fb8d0ace78bfcfb59deaf74d0",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
