@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6aee50fc_574fb842",
+        "filename": "testcases/basic-functional/ntpd.robot",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2019-10-09T18:54:57Z",
+      "side": 1,
+      "message": "I suggest moving ceph test to a separate file",
+      "revId": "389466b1b6ac1a3fbde9119568cd7d5947fb96b6",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    }
+  ]
+}
