@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "95115b92_ca19f3d9",
+        "filename": "testcases/basic-functional/dns.robot",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2019-10-09T19:08:28Z",
+      "side": 1,
+      "message": "Krisztián, do you think there might be something already present in the REC/TA registry that could be used instead of nginx as a test target?\n\nThis test case should instantiate a deployment with an ingress port and test that DNS resolution works for the newly created deployment, but it doesn\u0027t really matter to the test case what software is deployed.",
+      "parentUuid": "e410f663_23abf28f",
+      "range": {
+        "startLine": 44,
+        "startChar": 61,
+        "endLine": 44,
+        "endChar": 123
+      },
+      "revId": "8bfc3028db26212fb8d0ace78bfcfb59deaf74d0",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9d61b2ba_e0f5b90c",
         "filename": "testcases/basic-functional/dns.robot",
         "patchSetId": 4
