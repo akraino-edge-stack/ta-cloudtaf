@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "0668f730_0da0a755",
+        "filename": "testcases/basic-functional/dns.robot",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2019-10-10T10:37:20Z",
+      "side": 1,
+      "message": "I wouldn\u0027t have thought of using busybox for a server component (as opposed to a set of client side utilities), but from https://busybox.net/downloads/BusyBox.html it does appear that there are a few server components. I don\u0027t see and httpd, but I do see a telnetd and an ftpd as well as plain old nc. Perhaps one of those would be suitable for this simple test of having something listening on a port and  testing whether something else can use DNS to do DNS service discovery and connect.\n\nNaga, would doing nc -l on one side and nc on the other side meet the goals of the test?",
+      "parentUuid": "d9dda95d_5d391d08",
+      "range": {
+        "startLine": 44,
+        "startChar": 61,
+        "endLine": 44,
+        "endChar": 123
+      },
+      "revId": "8bfc3028db26212fb8d0ace78bfcfb59deaf74d0",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9d61b2ba_e0f5b90c",
         "filename": "testcases/basic-functional/dns.robot",
         "patchSetId": 4
