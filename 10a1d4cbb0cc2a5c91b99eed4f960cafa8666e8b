@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3cbfeb64_07ed170e",
+        "filename": "testcases/kube-service/kube-service.robot",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 67
+      },
+      "writtenOn": "2019-10-10T15:04:01Z",
+      "side": 1,
+      "message": "Is the master node name (controller-1) hard coded here?",
+      "revId": "10a1d4cbb0cc2a5c91b99eed4f960cafa8666e8b",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
