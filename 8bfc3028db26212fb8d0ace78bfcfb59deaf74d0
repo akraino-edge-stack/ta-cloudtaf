@@ -72,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "d9dda95d_5d391d08",
+        "filename": "testcases/basic-functional/dns.robot",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 183
+      },
+      "writtenOn": "2019-10-10T10:12:31Z",
+      "side": 1,
+      "message": "we use a simply busybox image with the required tools pre-installed.\nAs part of the \"test suite setup\" phase we onboard this light image to the SUT together with the Helm charts used during testing, and then the test steps are basically \"install Helm chart, check everything happened as it should\"",
+      "parentUuid": "95115b92_ca19f3d9",
+      "range": {
+        "startLine": 44,
+        "startChar": 61,
+        "endLine": 44,
+        "endChar": 123
+      },
+      "revId": "8bfc3028db26212fb8d0ace78bfcfb59deaf74d0",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9d61b2ba_e0f5b90c",
         "filename": "testcases/basic-functional/dns.robot",
         "patchSetId": 4
