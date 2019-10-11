@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dc3ecfc7_265770c5",
+        "filename": "testcases/kube-service/kube-service.robot",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 67
+      },
+      "writtenOn": "2019-10-11T17:32:46Z",
+      "side": 1,
+      "message": "Is there any reason for missing protocol here?",
+      "revId": "ba587c5a1ecac9b34bc0fedad1f8a3509498797d",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c3a33a8_910ec65d",
+        "filename": "testcases/kube-service/kube-service.robot",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 67
+      },
+      "writtenOn": "2019-10-11T17:32:46Z",
+      "side": 1,
+      "message": "target hard coded.",
+      "revId": "ba587c5a1ecac9b34bc0fedad1f8a3509498797d",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7cfdb0f9_f5c2da15",
+        "filename": "testcases/kube-service/kube-service.robot",
+        "patchSetId": 5
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 67
+      },
+      "writtenOn": "2019-10-11T17:32:46Z",
+      "side": 1,
+      "message": "I think apply is better than create because apply will not fail if the resources already exists.",
+      "revId": "ba587c5a1ecac9b34bc0fedad1f8a3509498797d",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08450e4d_8401e643",
+        "filename": "testcases/kube-service/kube-service.robot",
+        "patchSetId": 5
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 67
+      },
+      "writtenOn": "2019-10-11T17:32:46Z",
+      "side": 1,
+      "message": "can we simplify this name? May we can split this into multiple keywords",
+      "revId": "ba587c5a1ecac9b34bc0fedad1f8a3509498797d",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
