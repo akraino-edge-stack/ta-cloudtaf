@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1289bfca_7f84c957",
+        "filename": "testcases/kube-service/kube-service.robot",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 67
+      },
+      "writtenOn": "2019-10-11T17:40:26Z",
+      "side": 1,
+      "message": "Its my bad. Its just image name.",
+      "parentUuid": "dc3ecfc7_265770c5",
+      "revId": "ba587c5a1ecac9b34bc0fedad1f8a3509498797d",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c3a33a8_910ec65d",
         "filename": "testcases/kube-service/kube-service.robot",
         "patchSetId": 5
