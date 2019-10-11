@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "389c2d85_e31f8294",
+        "filename": "testcases/test-registry/test-registry.robot",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2019-10-11T11:33:11Z",
+      "side": 1,
+      "message": "Remove end of line whitespace flagged by Gerrit. You should be able to configure your editor to either do this for you or at least to highlight it.\n\nThe .vimrc config looks something like this, other editors should have similar functionality.\n\n highlight ExtraWhitespace ctermbg\u003dred guibg\u003dred\n match ExtraWhitespace /\\s\\+$/",
+      "revId": "5378821e9f77ca21ec176829849c59330e5c4083",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ecd2575_c23b8ffd",
+        "filename": "testcases/test-registry/test-registry.robot",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2019-10-11T11:33:11Z",
+      "side": 1,
+      "message": "Why is this commented out? If it\u0027s for experimentation, delete it before pushing git commit to Gerrit.",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 96
+      },
+      "revId": "5378821e9f77ca21ec176829849c59330e5c4083",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "afee27e3_6ce0ddd3",
+        "filename": "testcases/test-registry/test-registry.robot",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2019-10-11T11:33:11Z",
+      "side": 1,
+      "message": "Is this structure forced by Robot syntax? It\u0027s really ugly.\n\nAre you using the variables anywhere else? If not, it would be more readable to just do:\n\n log    ssh.Execute Command    ${load_image}    controller-1\n log    ssh.Execute Command    docker tag hello-world ${docker_image}    controller-1",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 30
+      },
+      "revId": "5378821e9f77ca21ec176829849c59330e5c4083",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d4138e1e_b0b21107",
+        "filename": "testcases/test-registry/test-registry.robot",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2019-10-11T11:33:11Z",
+      "side": 1,
+      "message": "to",
+      "range": {
+        "startLine": 46,
+        "startChar": 18,
+        "endLine": 46,
+        "endChar": 22
+      },
+      "revId": "5378821e9f77ca21ec176829849c59330e5c4083",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4fed8dd7_817a13e7",
+        "filename": "testcases/test-registry/test-registry.robot",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 43
+      },
+      "writtenOn": "2019-10-11T11:33:11Z",
+      "side": 1,
+      "message": "to",
+      "range": {
+        "startLine": 79,
+        "startChar": 22,
+        "endLine": 79,
+        "endChar": 26
+      },
+      "revId": "5378821e9f77ca21ec176829849c59330e5c4083",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": false
+    }
+  ]
+}
