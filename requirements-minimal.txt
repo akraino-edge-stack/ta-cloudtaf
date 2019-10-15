@@ -1,3 +1,6 @@
 crl.remotesession
 crl.rfcli>=1.0
 pyyaml
+ruamel.yaml==0.15.96
+netaddr==0.7.19
+requests==2.22.0
