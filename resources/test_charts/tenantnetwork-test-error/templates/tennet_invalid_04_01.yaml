@@ -1,0 +1,16 @@
+# invalid TenantNetwork manifest with incorrect ipv6 route
+apiVersion: danm.k8s.io/v1
+kind: TenantNetwork
+metadata:
+  name: tennet-invalid-04-01
+  namespace: default
+spec:
+  NetworkID: internal
+  NetworkType: ipvlan
+  Options:
+    host_device: ens4
+    container_prefix: int
+    rt_tables: 200
+    net6: 2001:db8::/45
+    routes6:
+      2001:db8::/45: 2001:db8::1::2

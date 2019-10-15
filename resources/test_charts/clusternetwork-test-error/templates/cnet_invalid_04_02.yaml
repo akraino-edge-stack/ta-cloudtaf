@@ -1,0 +1,15 @@
+apiVersion: danm.k8s.io/v1
+kind: ClusterNetwork
+metadata:
+  name: cnet-invalid-04-02
+spec:
+  NetworkID: external
+  NetworkType: ipvlan
+  Options:
+    host_device: ens4
+    vlan: 500
+    container_prefix: ext
+    rt_tables: 100
+    net6: 2001:db8::/45
+    routes6:
+      2000:db8::/45: "2001:0db8:0008::"
