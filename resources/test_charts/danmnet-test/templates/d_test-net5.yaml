@@ -1,0 +1,11 @@
+apiVersion: danm.k8s.io/v1 
+kind: DanmNet
+metadata:
+  name: test-net5
+  namespace: default
+spec:
+  NetworkID: test-net5
+  Options:
+    container_prefix: eth0
+    host_device: inval#d 
+    rt_tables: 14

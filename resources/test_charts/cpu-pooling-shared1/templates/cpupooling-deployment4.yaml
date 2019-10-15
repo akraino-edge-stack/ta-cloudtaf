@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cpu-pooling-4
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: cpu-pooling
+  template:
+    metadata:
+      labels:
+        app: cpu-pooling
+    spec:
+      containers:
+      - name: cpu-pooling
+        image: {{ .Values.registry_url }}:5555/crf/alpine_test:latest
+        imagePullPolicy: IfNotPresent
+        command: ["/bin/sh", "-c", "--"]
+        args: ["yes > /dev/null"]
+        resources:
+          requests:
+            nokia.k8s.io/shared_caas: {{ .Values.pool_req }}
+          limits:
+            nokia.k8s.io/shared_caas: {{ .Values.pool_req }}
+      nodeSelector:
+        nodename: {{ .Values.nodename }}
