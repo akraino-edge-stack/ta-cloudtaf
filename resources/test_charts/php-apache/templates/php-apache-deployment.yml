@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php-apache-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: php-apache
+  template: 
+    metadata:
+      labels:
+        app: php-apache
+      annotations:
+        danm.k8s.io/interfaces: |
+          [
+             {
+                "tenantnetwork":"default"
+             }
+          ]
+    spec:
+      nodeSelector:
+        nodetype: caas_master
+      containers:
+      - name: php-apache
+        image: {{ .Values.registry_url }}:5555/crf/php-apache:latest
+        resources:
+          limits:
+            cpu: "0.2"
+            memory: "64Mi"
+          requests:
+            cpu: "0.2"
+            memory: "64Mi"
+
