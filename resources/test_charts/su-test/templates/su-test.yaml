@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: su-test
+  namespace: kube-system
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: su-test
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: su-test
+    spec:
+      containers:
+      - name: busybox
+        image: {{ .Values.registry_url }}:5555/caas/busybox:latest
+        args: ["sleep", "{{ .Values.sleep_time }}"]
+
