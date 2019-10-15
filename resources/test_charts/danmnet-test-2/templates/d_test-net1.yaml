@@ -1,0 +1,11 @@
+apiVersion: danm.k8s.io/v1 
+kind: DanmNet
+metadata:
+  name: test-net1
+  namespace: default
+spec:
+  NetworkID: test-net1
+  Options:
+    container_prefix: eth0
+    host_device: {{ .Values.infra_int_if }} 
+    rt_tables: 201

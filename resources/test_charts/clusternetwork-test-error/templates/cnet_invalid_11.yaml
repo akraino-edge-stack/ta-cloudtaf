@@ -1,0 +1,17 @@
+apiVersion: danm.k8s.io/v1
+kind: ClusterNetwork
+metadata:
+  name: cnet-invalid-11
+spec:
+  NetworkID: sriovinv
+  NetworkType: sriov
+  Options:
+    host_device: dummyjoska
+    device_pool: "nokia.k8s.io/sriov_ens3" 
+    vlan: 500
+    container_prefix: ext
+    rt_tables: 100
+    cidr: 200.0.11.0/16
+    allocation_pool:
+      start: 200.0.11.0
+      end: 200.0.11.255
