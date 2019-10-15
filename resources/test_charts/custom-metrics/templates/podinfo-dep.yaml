@@ -1,0 +1,48 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: podinfo
+  namespace: kube-system
+spec:
+  selector:
+    matchLabels:
+      app: podinfo
+      k8s-app: podinfo
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: podinfo
+        k8s-app: podinfo
+      annotations:
+        prometheus.io/scrape: 'true'
+    spec:
+      containers:
+      - name: podinfod
+        image: {{ .Values.registry_url }}:5555/caas/podinfo:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 9898
+          protocol: TCP
+        readinessProbe:
+          httpGet:
+            path: /readyz
+            port: 9898
+          initialDelaySeconds: 1
+          periodSeconds: 2
+          failureThreshold: 1
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 9898
+          initialDelaySeconds: 1
+          periodSeconds: 3
+          failureThreshold: 2
+        resources:
+          requests:
+            memory: "32Mi"
+            cpu: "1m"
+          limits:
+            memory: "256Mi"
+            cpu: "100m"

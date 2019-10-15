@@ -1,0 +1,11 @@
+apiVersion: danm.k8s.io/v1
+kind: DanmNet
+metadata:
+  name: test-net6
+  namespace: default
+spec:
+  NetworkID: test-net6
+  Options:
+    host_device: {{ .Values.infra_int_if }}
+    cidr: 10.0.0.0/24
+    vxlan: 52
