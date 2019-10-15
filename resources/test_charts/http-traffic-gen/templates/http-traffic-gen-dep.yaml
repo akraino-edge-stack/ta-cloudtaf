@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: http-traffic-gen
+  namespace: default
+spec:
+  template:
+    metadata:
+      name:  http-traffic-gen
+    spec:
+      containers:
+      - name: http-traffic-gen
+        image: {{ .Values.registry_url }}:5555/crf/http-traffic-gen:latest
+      restartPolicy: Never

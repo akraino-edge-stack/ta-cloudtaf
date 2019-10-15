@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: danmnet-pods8-1
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: danmnet-pods8-1
+      app: alpine
+  template:
+    metadata:
+      labels:
+        name: danmnet-pods8-1
+        app: alpine
+      annotations:
+        danm.k8s.io/interfaces: |
+          [
+            {
+              "clusterNetwork":"cnet-pod4", "ip":"10.244.100.100/24"
+            }
+          ]
+    spec:
+      containers:
+      - name: alpine
+        image: {{ .Values.registry_url }}:5555/crf/alpine_test:latest
+        imagePullPolicy: IfNotPresent
+        command: ["/usr/bin/dumb-init", "-c", "sh", "-c", "--"]
+        args: ["echo -e 'HTTP/1.0 200 OK \n\nOK'>/tmp/temp; nc -l -p 4242 < /tmp/temp; sleep 6000"]

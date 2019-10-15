@@ -1,0 +1,3 @@
+name: tenantnetwork-attach-pod6
+version: 1.0.0
+description: pods for TenantNetwork tests; no CIDR, no allocation_pool, static/dynamic ip alloc fails
