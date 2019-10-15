@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: logger
+  namespace: kube-system
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      ncrf-image: logger
+  template:
+    metadata:
+      labels:
+        ncrf-image: logger
+    spec:
+      nodeSelector:
+        nodename: caas_master1
+      containers:
+        - name: loggen
+          image: registry.kube-system.svc.nokia.net:5555/crf/logger:latest
+          env:
+            - name: STRPS
+              value: "500"
+              #STRPS - string per second is the amount of lines per second
+            - name: STRLEN
+              value: "160"
+              #STRLEN - length of the string
+            - name: SPREAD
+              value: "20"
+              #SPREAD - average deviation from the average length value: 0-100 where 0 there is no deviation
+

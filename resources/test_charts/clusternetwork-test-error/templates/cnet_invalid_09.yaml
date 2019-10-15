@@ -1,0 +1,16 @@
+apiVersion: danm.k8s.io/v1
+kind: ClusterNetwork
+metadata:
+  name: cnet-invalid-09
+spec:
+  NetworkID: external
+  NetworkType: sriov
+  Options:
+    host_device: ens3
+    vlan: 500
+    container_prefix: ext
+    rt_tables: 100
+    cidr: 200.0.9.0/16
+    allocation_pool:
+      start: 200.0.9.0
+      end: 200.0.9.255 

@@ -1,0 +1,8 @@
+pool_req: "1"
+proc_req: 1
+replicas: 1
+mem_request: "1Gi"
+cpu_request: "500m"
+mem_limit: "1Gi"
+cpu_limit: "500m"
+nodename: caas_master1
