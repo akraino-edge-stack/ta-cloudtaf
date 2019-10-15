@@ -1,0 +1,4 @@
+pool_req: "2"
+proc1_req: 1
+proc2_req: 1
+nodename: caas_worker1
