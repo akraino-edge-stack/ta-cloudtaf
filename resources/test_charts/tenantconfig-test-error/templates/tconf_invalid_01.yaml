@@ -1,0 +1,7 @@
+# erroneous TenantConfig with empty hostDevices and networkIds
+apiVersion: danm.k8s.io/v1
+kind: TenantConfig
+metadata:
+  name: tconf-invalid-01
+hostDevices:
+networkIds:

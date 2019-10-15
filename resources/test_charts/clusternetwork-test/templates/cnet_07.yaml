@@ -1,0 +1,23 @@
+apiVersion: danm.k8s.io/v1
+kind: ClusterNetwork
+metadata:
+  name: cnet-07
+spec:
+  NetworkID: cnet07
+  NetworkType: ipvlan
+  AllowedTenants:
+    - kube-system
+    - kube-public
+  Options:
+    host_device: {{ .Values.infra_int_if }}  
+    container_prefix: ext
+    rt_tables: 100
+    cidr: 10.7.1.0/24
+    net6: 2001:db8::/43
+    allocation_pool:
+      start: 10.7.1.1
+      end: 10.7.1.200
+    routes:
+      10.7.1.0/24: 10.7.1.1
+    routes6:
+      2001:db8::/44: 2001:db8:1::1
