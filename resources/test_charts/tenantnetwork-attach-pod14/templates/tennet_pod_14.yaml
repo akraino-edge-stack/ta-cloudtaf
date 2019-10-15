@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tennet-pod-14
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: alpine
+  template:
+    metadata:
+      labels:
+        app: alpine
+      annotations:
+        danm.k8s.io/interfaces: |
+          [
+            {
+              "tenantNetwork":"tennet-attach-06", "ip":"10.20.6.10/24"
+            },
+            {
+              "tenantNetwork":"tennet-attach-05", "ip":"dynamic"
+            },
+            {
+              "tenantNetwork":"tennet-attach-01", "ip":"10.240.1.5/24"
+            }
+          ]
+    spec:
+      containers:
+      - name: alpine
+        image: {{ .Values.registry_url }}:5555/crf/alpine_test:latest
+        imagePullPolicy: IfNotPresent
+        command: ["/usr/bin/dumb-init", "-c", "--"]
+        args: ["sleep", "6000"]
