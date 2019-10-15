@@ -1,0 +1,4 @@
+shared_pool_req: "500"
+exclusive_pool_req: "1"
+proc_req: 1
+nodename: caas_worker1
