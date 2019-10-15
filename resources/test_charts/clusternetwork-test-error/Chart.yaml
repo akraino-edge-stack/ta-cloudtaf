@@ -1,0 +1,3 @@
+description: chart for invalid clusternetwork validation tests
+name: clusternetwork-test-error
+version: 1.0.0
