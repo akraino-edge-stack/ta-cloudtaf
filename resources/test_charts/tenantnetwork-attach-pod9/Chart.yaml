@@ -1,0 +1,3 @@
+name: tenantnetwork-attach-pod9
+version: 1.0.0
+description: pods for TenantNetwork tests; flannel with static ip allocation outside flannel CIDR, which is ignored, and dynamic alloc

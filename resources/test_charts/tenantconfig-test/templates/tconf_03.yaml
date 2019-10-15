@@ -1,0 +1,9 @@
+# TenantConfig with one host_device with vniType & vniRange, without networkType: networkId mapping
+apiVersion: danm.k8s.io/v1
+kind: TenantConfig
+metadata:
+  name: tconf-03
+hostDevices:
+- name: {{ .Values.infra_ext_if }}  
+  vniType: vlan
+  vniRange: 1000-2000
