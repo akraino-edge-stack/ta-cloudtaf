@@ -1,0 +1,11 @@
+# erroneous TenantConfig with one host_device, and malformed networkIds which is missing the networkType from the networkType: networkId mapping
+apiVersion: danm.k8s.io/v1
+kind: TenantConfig
+metadata:
+  name: tconf-invalid-07
+hostDevices:
+- name: ens4
+  vniType: vlan
+  vniRange: 1000-2000
+networkIds:
+  : flannel

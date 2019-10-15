@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: tennet-pod-09
+  name: tennet-pod-09
+  namespace: default
+spec:
+  ports:
+  - name: tennet-pod-09
+    port: 4141
+    protocol: TCP
+  selector:
+    name: tennet-pod-09
