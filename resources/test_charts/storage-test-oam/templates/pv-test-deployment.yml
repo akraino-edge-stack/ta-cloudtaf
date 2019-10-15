@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pv-test-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: pv-test
+  template:
+    metadata:
+      labels:
+        app: pv-test
+    spec:
+      nodeSelector:
+        nodename: caas_master1
+      volumes:
+      - name: pv-test
+        persistentVolumeClaim:
+          claimName: task-pv-claim
+      containers:
+      - name: pv-test-pod
+        image: {{ .Values.registry_url }}:5555/crf/alpine_test:latest
+        command: ["/usr/bin/dumb-init", "-c", "--"]
+        args: ["sleep", "6000"]
+        volumeMounts:
+        - mountPath: "/usr/share/storage_test"
+          name: pv-test
