@@ -1,0 +1,13 @@
+# valid TenantNetwork manifest with valid ipv4 and ipv6 notation, and with allocation_pool; with ipv4 and ipv6 routes
+apiVersion: danm.k8s.io/v1
+kind: TenantNetwork
+metadata:
+  name: tennet-attach-07
+  namespace: default
+spec:
+  NetworkID: tnet07
+  NetworkType: ipvlan
+  Options:
+    host_device: {{ .Values.infra_int_if }}
+    container_prefix: int
+    rt_tables: 200
