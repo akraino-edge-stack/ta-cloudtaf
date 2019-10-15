@@ -1,0 +1,16 @@
+apiVersion: danm.k8s.io/v1 
+kind: DanmNet
+metadata:
+  name: test-net28
+  namespace: default
+spec:
+  NetworkID: test-net28
+  Options:
+    host_device: {{ .Values.infra_int_if }} 
+    cidr: 10.0.0.0/24 
+    allocation_pool:
+      start: 10.0.0.1
+      end: 10.0.0.20
+    container_prefix: eth0
+    rt_tables: 33
+    vxlan: 50

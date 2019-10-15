@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cpu-pooling-7
+  namespace: default
+spec:
+  replicas: {{ .Values.replicas }}
+  selector:
+    matchLabels:
+      app: cpu-pooling
+  template:
+    metadata:
+      labels:
+        app: cpu-pooling
+    spec:
+      containers:
+      - name: cpu-pooling
+        image: {{ .Values.registry_url }}:5555/crf/alpine_test:latest
+        imagePullPolicy: IfNotPresent
+        command: ["/usr/bin/dumb-init", "-c", "--"]
+        args: ["sleep", "1000"]
+        resources:
+          requests:
+            memory: {{ .Values.mem_request }}
+            cpu: {{ .Values.cpu_request }}
+          limits:
+            memory: {{ .Values.mem_limit }}
+            cpu: {{ .Values.cpu_limit }}
+      nodeSelector:
+        nodename: {{ .Values.nodename }}

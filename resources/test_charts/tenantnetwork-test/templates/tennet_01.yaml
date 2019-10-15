@@ -1,0 +1,12 @@
+# valid TenantNetwork manifest with valid ipv4 CIDR notation, no routes, no allocation_pool
+apiVersion: danm.k8s.io/v1
+kind: TenantNetwork
+metadata:
+  name: tennet-01
+  namespace: default
+spec:
+  NetworkID: tnet01
+  NetworkType: ipvlan
+  Options:
+    host_device: {{ .Values.infra_ext_if }}  
+    cidr: 10.240.1.0/24
