@@ -1,0 +1,19 @@
+apiVersion: danm.k8s.io/v1
+kind: ClusterNetwork
+metadata:
+  name: cnet-04
+spec:
+  NetworkID: cnet04
+  NetworkType: ipvlan
+  Options:
+    host_device: {{ .Values.infra_ext_if }}  
+    vlan: 504
+    container_prefix: ext
+    rt_tables: 100
+    cidr: 10.4.1.0/24
+    net6: 2001:db8::/45
+    routes:
+      10.4.1.0/24: 10.4.1.1
+    routes6:
+      2001:db8::/45: 2001:db8:1::1
+

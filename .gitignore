@@ -3,6 +3,7 @@
 *.swn
 *.tox/
 *.pyc
+*.log
 log.html
 output.xml
 report.html
@@ -14,3 +15,5 @@ libraries/cloudtaflibs.egg-info/
 coverage-html-py27/
 rfcli_output/
 targets/*.ini
+.idea
+pabot_logs/
