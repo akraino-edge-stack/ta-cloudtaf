@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "66eda3fe_db11aa4a",
+        "filename": "testcases/basic-functional/ntpd.robot",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 186
+      },
+      "writtenOn": "2019-10-15T07:56:25Z",
+      "side": 1,
+      "message": "This should be extracted to a variable, because NTP toleration is a configurable value. If time difference is bigger than toleration, NTP refuses to update time.",
+      "range": {
+        "startLine": 54,
+        "startChar": 58,
+        "endLine": 54,
+        "endChar": 68
+      },
+      "revId": "a65003460bb1cdef63cffbde27572221711c64f1",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
