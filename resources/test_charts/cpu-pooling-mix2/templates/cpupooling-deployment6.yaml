@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cpu-pooling-6
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: cpu-pooling
+  template:
+    metadata:
+      labels:
+        app: cpu-pooling
+      annotations:
+        nokia.k8s.io/cpus: |
+          [{
+            "container": "cpu-pooling",
+            "processes":
+              [{
+                  "process": "/usr/bin/dumb-init",
+                  "args": ["-c", "sleep", "1000"],
+                  "pool": "exclusive_caas",
+                  "cpus": {{ .Values.proc_req }}
+                },
+                {
+                  "process": "/usr/bin/dumb-init",
+                  "args": ["-c", "sleep", "2000"],
+                  "pool": "shared_caas",
+                  "cpus": {{ .Values.shared_pool_ann }}
+              }]
+          }]
+    spec:
+      containers:
+      - name: cpu-pooling
+        image: {{ .Values.registry_url }}:5555/caas/alpine_test:latest
+        imagePullPolicy: IfNotPresent
+        command: ["/usr/bin/dumb-init", "-c", "--"]
+        args: ["sleep", "6000"]
+        resources:
+          requests:
+            nokia.k8s.io/exclusive_caas: {{ .Values.exclusive_pool_req }}
+            nokia.k8s.io/shared_caas: {{ .Values.shared_pool_req }}
+          limits:
+            nokia.k8s.io/exclusive_caas: {{ .Values.exclusive_pool_req }}
+            nokia.k8s.io/shared_caas: {{ .Values.shared_pool_req }}

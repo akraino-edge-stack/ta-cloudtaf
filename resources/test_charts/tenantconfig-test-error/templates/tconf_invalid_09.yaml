@@ -1,0 +1,11 @@
+# erroneous TenantConfig with one host_device, and malformed networkIds where the networkId is longer than the allowed length for networkId (longer than 11)
+apiVersion: danm.k8s.io/v1
+kind: TenantConfig
+metadata:
+  name: tconf-invalid-09
+hostDevices:
+- name: ens4
+  vniType: vlan
+  vniRange: 1000-2000
+networkIds:
+  ipvlan: twelve-chars

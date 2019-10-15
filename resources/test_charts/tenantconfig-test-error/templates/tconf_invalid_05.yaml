@@ -1,0 +1,13 @@
+# erroneous TenantConfig with multiple hostDevices, where one has missing vniRange
+apiVersion: danm.k8s.io/v1
+kind: TenantConfig
+metadata:
+  name: tconf-invalid-05
+hostDevices:
+- name: ens4
+  vniType: vlan
+- name: ens5
+  vniType: vlan
+  vniRange: 2000-3000
+networkIds:
+  flannel: flannel
