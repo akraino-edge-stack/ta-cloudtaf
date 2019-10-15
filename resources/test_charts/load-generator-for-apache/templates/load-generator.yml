@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: load-generator-for-apache
+  namespace: default
+spec:
+  template:
+    metadata:
+      name:  load-generator-for-apache
+    spec:
+      containers:
+      - name: busybox
+        image: {{ .Values.registry_url }}:5555/crf/busybox:latest
+        command: ["/bin/sh", "-c", "--"]
+        args: ["START=`date +%s`; while [ $(( $(date +%s) - 90 )) -lt $START ]; do wget -q -O- http://10.254.142.142:80; done;"]
+      restartPolicy: Never
