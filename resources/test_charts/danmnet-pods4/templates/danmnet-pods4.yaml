@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: danmnet-pods4
+  namespace: kube-system
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: alpine
+  template:
+    metadata:
+      labels:
+        app: alpine
+      annotations:
+        danm.k8s.io/interfaces: |
+          [
+            {
+              "network":"test-net2", "ip":"dynamic"
+            }
+          ]
+    spec:
+      containers:
+      - name: alpine
+        image: {{ .Values.registry_url }}:5555/crf/alpine_test:latest
+        imagePullPolicy: IfNotPresent
+        command: ["/usr/bin/dumb-init", "-c", "--"]
+        args: ["sleep", "6000"]
