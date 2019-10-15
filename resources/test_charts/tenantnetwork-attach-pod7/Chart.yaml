@@ -1,0 +1,3 @@
+name: tenantnetwork-attach-pod7
+version: 1.0.0
+description: pods for TenantNetwork tests; multiple TenantNetwork-s (flannel+ipvlan)
