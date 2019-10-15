@@ -1,0 +1,3 @@
+name: tenantnetwork-attach-pod8
+version: 1.0.0
+description: pods for TenantNetwork tests; check if service is reachable with flannel (static ip included in flannel cidr)

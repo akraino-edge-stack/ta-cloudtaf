@@ -1,0 +1,16 @@
+apiVersion: danm.k8s.io/v1
+kind: ClusterNetwork
+metadata:
+  name: cnet-09
+spec:
+  NetworkID: cnet09
+  NetworkType: macvlan
+  Options:
+    device_pool: "nokia.k8s.io/sriov_ens3"
+    vlan: 509
+    container_prefix: ext
+    rt_tables: 100
+    cidr: 200.0.10.0/16
+    allocation_pool:
+      start: 200.0.10.0
+      end: 200.0.10.255 

@@ -1,0 +1,7 @@
+apiVersion: danm.k8s.io/v1
+kind: ClusterNetwork
+metadata:
+  name: cnet-pod4
+spec:
+  NetworkID: flannel
+  NetworkType: flannel

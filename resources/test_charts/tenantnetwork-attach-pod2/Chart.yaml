@@ -1,0 +1,3 @@
+name: tenantnetwork-attach-pod2
+version: 1.0.0
+description: pods for TenantNetwork tests; dynamic ip allocation of mostly taken ip-s; separately deployable, but 4 replicas fail during testing due to ip shortage
