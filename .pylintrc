@@ -65,7 +65,7 @@ confidence=
 # --enable=similarities". If you want to run only the classes checker, but have
 # no Warning level messages displayed, use"--disable=all --enable=classes
 # --disable=W"
-disable= missing-docstring, locally-disabled
+disable= missing-docstring, locally-disabled, unused-import, wildcard-import, unused-wildcard-import, dangerous-default-value, invalid-name, duplicate-code, too-many-arguments, wrong-import-order, wrong-import-position, broad-except, fixme, unexpected-keyword-arg, redefined-builtin, global-variable-undefined
 
 [REPORTS]
 
@@ -192,7 +192,7 @@ max-nested-blocks=5
 [FORMAT]
 
 # Maximum number of characters on a single line.
-max-line-length=100
+max-line-length=120
 
 # Regexp for a line that is allowed to be longer than the limit.
 ignore-long-lines=^\s*(# )?<?https?://\S+>?$

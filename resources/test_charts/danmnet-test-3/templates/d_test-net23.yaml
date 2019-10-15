@@ -1,0 +1,17 @@
+apiVersion: danm.k8s.io/v1 
+kind: DanmNet
+metadata:
+  name: test-net23
+  namespace: default
+spec:
+  NetworkID: test-net23
+  NetworkType: inv#lid
+  Options:
+    host_device: ens3 
+    cidr: 10.0.0.0/24 
+    allocation_pool:
+      start: 10.0.0.1
+      end: 10.0.0.255
+    container_prefix: eth0
+    rt_tables: 30
+    vxlan: 57

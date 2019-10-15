@@ -1,0 +1,3 @@
+name: tenantnetwork-attach-pod10
+version: 1.0.0
+description: pods for TenantNetwork tests; attach with 'None' ip
