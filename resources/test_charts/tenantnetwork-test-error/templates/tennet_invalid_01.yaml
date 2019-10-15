@@ -1,0 +1,14 @@
+# invalid TenantNetwork manifest with incorrect ipv4 CIDR notation
+apiVersion: danm.k8s.io/v1
+kind: TenantNetwork
+metadata:
+  name: tennet-invalid-01
+  namespace: default
+spec:
+  NetworkID: internal
+  NetworkType: ipvlan
+  Options:
+    host_device: ens3
+    container_prefix: int
+    rt_tables: 200
+    cidr: 10.256.1.0/24
