@@ -1,0 +1,3 @@
+name: tenantnetwork-attach-pod4
+version: 1.0.0
+description: pods for TenantNetwork tests; dynamic ip allocation for non-default namespaced Deployment+TenantNetwork

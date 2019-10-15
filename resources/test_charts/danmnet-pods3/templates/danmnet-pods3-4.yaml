@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: danmnet-pods3-4
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: alpine
+  template:
+    metadata:
+      labels:
+        app: alpine
+      annotations:
+        danm.k8s.io/interfaces: |
+          [
+            {
+              "clusterNetwork":"cnet-pod1", "ip":"10.5.255.254/16"
+            }
+          ]
+    spec:
+      nodeSelector:
+        nodename: caas_master1
+      containers:
+      - name: alpine
+        image: {{ .Values.registry_url }}:5555/caas/alpine_test:latest
+        imagePullPolicy: IfNotPresent
+        command: ["/usr/bin/dumb-init", "-c", "--"]
+        args: ["sleep", "6000"]
