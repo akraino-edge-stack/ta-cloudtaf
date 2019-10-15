@@ -1,0 +1,18 @@
+# valid TenantNetwork manifest with valid ipv4 and ipv6 CIDR notation, and with valid routes for both ipv4 and ipv6; no allocation_pool
+apiVersion: danm.k8s.io/v1
+kind: TenantNetwork
+metadata:
+  name: tennet-04
+  namespace: default
+spec:
+  NetworkID: tnet04
+  NetworkType: ipvlan
+  Options:
+    host_device: {{ .Values.infra_storage_if }}  
+    container_prefix: int
+    cidr: 10.240.4.0/24
+    net6: 2001:db8::/45
+    routes:
+        10.40.1.0/24: 10.240.4.254
+    routes6:
+        2001:db9::/45: 2001:db8:4::1

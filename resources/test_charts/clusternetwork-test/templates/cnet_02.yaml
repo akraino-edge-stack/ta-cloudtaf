@@ -1,0 +1,15 @@
+apiVersion: danm.k8s.io/v1
+kind: ClusterNetwork
+metadata:
+  name: cnet-02
+spec:
+  NetworkID: cnet02
+  NetworkType: ipvlan
+  Options:
+    host_device: {{ .Values.infra_ext_if }}  
+    vlan: 502
+    container_prefix: ext
+    rt_tables: 100
+    cidr: 10.2.0.0/24
+    routes:
+      10.2.0.0/24: 10.2.0.254
