@@ -1,0 +1,204 @@
+#!/bin/bash -e
+function cleanupdocker {
+  set +e
+  docker images | grep '<none>' | awk '{ system("docker rmi -f "$3)}'
+  docker system prune -f
+  set -e
+}
+
+function dockerarchive {
+  mkdir -p ${JENKINS_HOME}/workspace/results_${ID}/images
+  rm -rf  ${JENKINS_HOME}/workspace/results_${ID}/images/${COMPONENT}:${image_tag}.tar
+  docker save ${REG}:${REG_PORT}/${REG_PATH}/${COMPONENT}:${image_tag} | xz -z -T4 > ${JENKINS_HOME}/workspace/results_${ID}/images/${COMPONENT}:${image_tag}.tar
+}
+
+function dockerpull {
+  if [[ "$#" -eq "1" ]]
+  then
+    echo "$1"
+    image_to_pull=$1
+  else
+    echo "Argument is missing"
+    exit -1
+  fi
+  set +e
+  docker pull $image_to_pull
+  result=$?
+  set -e
+  tries=0
+  while [[ $result -ne 0 ]] && [[ $tries -lt 10 ]]
+  do
+    echo "Waiting 1 second..."
+    sleep 1
+    set +e
+    docker pull $image_to_pull
+    result=$?
+    set -e
+    tries=$(($tries+1))
+  done
+  if [[ $result -ne 0 ]]
+  then
+    echo "Pull failed multiple times"
+    exit -1
+  else
+    echo "Pull succeeded"
+  fi
+
+}
+
+function dockerlogin {
+  set +e
+  docker login -u ${ARTY_LOGIN} -p ${ARTY_PASS} ${ARTY_URL}
+  result=$?
+  set -e
+  tries=0
+  while [[ $result -ne 0 ]] && [[ $tries -lt 10 ]]
+  do
+    echo "Waiting 1 second..."
+    sleep 1
+    set +e
+    docker login -u ${ARTY_LOGIN} -p ${ARTY_PASS} ${ARTY_URL}
+    result=$?
+    set -e
+    tries=$(($tries+1))
+  done
+  if [[ $result -ne 0 ]]
+  then
+    echo "Login failed multiple times"
+    exit -1
+  else
+    echo "Login succeeded"
+  fi
+}
+
+function baseversionreader {
+  upperimage=$(echo ${IMAGETOTAG} | awk '{print toupper($0)}')_VERSION
+  base_tag=$(eval echo \${$upperimage})
+  eval "$1=${base_tag}"
+}
+
+function basestuff {
+  baseversionreader base_tag
+  imagetag=$base_tag
+}
+
+function originalstuff {
+  imagetag=$( grep -w "${IMAGETOTAG}" ${JENKINS_HOME}/workspace/additional-files/latestmaster.txt | awk -F'=' '{ print $2 }' )
+}
+
+function tagit {
+  imagetagtmp=$( grep -w "${IMAGETOTAG}" ${JENKINS_HOME}/workspace/additional-files/latestmaster.txt | awk -F'=' '{ print $2 }' )
+  if [[ "$2" == "base" ]]
+  then
+    basestuff
+  elif [[ "$2" == "original" ]]
+  then
+    originalstuff
+  elif [[ "$2" == "plusone" ]]
+  then
+    baseversionreader base_tag
+    imagetagtmp=$( grep -w "${IMAGETOTAG}" ${JENKINS_HOME}/workspace/additional-files/latestmaster.txt | awk -F'=' '{ print $2 }' )
+    minornumber=$( echo "${imagetagtmp}" | awk -F'-' '{ print $NF }' )
+    set +e
+    echo "${imagetagtmp}" | grep -i "${base_tag}"
+    resultofmajorchange=$?
+    set -e
+    if [[ "${resultofmajorchange}" -eq "0" ]]
+    then
+      minornumber=$(($minornumber+1))
+    else
+      minornumber=0
+    fi
+    imagetag="${base_tag}-${minornumber}"
+  elif [[ "$2" == "arty-only-update" ]]
+  then
+    export TESTTT=$(grep ${COMPONENT} ${JENKINS_HOME}/workspace/results_${ID}/jenkins-docker-env2 | awk -F"=" '{ print $2}')
+    set +e
+    echo "${TESTTT}" | grep "true"
+    resultofimagechange2=$?
+    set -e
+    if [[ "$resultofimagechange2" -eq "0" ]]
+    then
+      basestuff
+    else
+      originalstuff
+    fi
+  else
+   echo "Unrecognized parameter!"
+   echo "- Use base as the second parameter to access Base versions (from build-config-files/version.sh)"
+   echo "- Use original as the second parameter to access Artyfactory latest versions (from additional-files/latestmaster.txt)"
+   echo "- Use plusone as the second parameter to access Base version (from build-config-files/version.sh) and Artyfactory latest version + 1 (from additional-files/latestmaster.txt) + your build ID merged tag."
+  fi
+  eval "$1=${imagetag}"
+}
+
+function createrpm {
+  mkdir -p ${JENKINS_HOME}/workspace/results_${ID}/rpm-from/${COMPONENT}/src/docker
+  mkdir -p ${JENKINS_HOME}/workspace/results_${ID}/rpm-from/${COMPONENT}/src/bom
+  cp ${JENKINS_HOME}/workspace/src_${ID}/docker-build/${COMPONENT}/ncir-bom.json ${JENKINS_HOME}/workspace/results_${ID}/rpm-from/${COMPONENT}/src/bom/ncir-bom.json
+  mkdir -p ${JENKINS_HOME}/workspace/results_${ID}/rpm-done
+  cp ${JENKINS_HOME}/workspace/src_${ID}/rpm-specs/${COMPONENT}.spec ${JENKINS_HOME}/workspace/results_${ID}/rpm-from/${COMPONENT}/${COMPONENT}.spec
+  if [[ "${COMPONENT}" == "tiller" ]] || [[ "${COMPONENT}" == "hypercube" ]] || [[ "${COMPONENT}" == "cpupooler" ]]
+  then
+    mkdir -p ${JENKINS_HOME}/workspace/results_${ID}/rpm-from/${COMPONENT}/src/docker
+    mkdir -p ${JENKINS_HOME}/workspace/results_${ID}/rpm-from/${COMPONENT}/src/binary
+    mkdir -p ${JENKINS_HOME}/workspace/results_${ID}/docker-with-binary-${COMPONENT}
+    cp ${JENKINS_HOME}/workspace/results_${ID}/images/${COMPONENT}* ${JENKINS_HOME}/workspace/results_${ID}/rpm-from/${COMPONENT}/src/docker/
+    main_version=$(echo ${image_tag} | awk -F'-' 'BEGIN { OFS="." } { $NF--; print }')
+    if [[ "${COMPONENT}" == "tiller" ]]
+    then
+      curl -fsSL -k https://storage.googleapis.com/kubernetes-helm/helm-v${main_version}-linux-amd64.tar.gz | tar zx --strip-components=1 -C ${JENKINS_HOME}/workspace/results_${ID}/docker-with-binary-${COMPONENT}/
+      cp ${JENKINS_HOME}/workspace/results_${ID}/docker-with-binary-${COMPONENT}/helm ${JENKINS_HOME}/workspace/results_${ID}/rpm-from/${COMPONENT}/src/binary/
+    elif [[ "${COMPONENT}" == "hypercube" ]]
+    then
+      curl -fsSL -k https://dl.k8s.io/v${main_version}/kubernetes-client-linux-amd64.tar.gz | tar zx --strip-components=1 -C ${JENKINS_HOME}/workspace/results_${ID}/docker-with-binary-${COMPONENT}/
+      cp ${JENKINS_HOME}/workspace/results_${ID}/docker-with-binary-${COMPONENT}/client/bin/kubectl ${JENKINS_HOME}/workspace/results_${ID}/rpm-from/${COMPONENT}/src/binary/
+
+      mkdir -p ${JENKINS_HOME}/workspace/results_${ID}/kubelet
+      dockerlogin
+      source ${JENKINS_HOME}/workspace/src_${ID}/build-config-files/version.sh
+      set +e
+      docker run \
+      -i \
+      --rm \
+      --net=host \
+      --privileged \
+      --cap-add=SYS_ADMIN \
+      --pid=host \
+      `env | grep VERSION | sed 's/^/-e /g'` \
+      -v /root/jenkins_ws/workspace/results_${ID}/kubelet/:/results/ \
+      ${ARTY_URL}/tools/kubelet_builder:1.1.3
+      set -e
+      cp ${JENKINS_HOME}/workspace/results_${ID}/kubelet/kubelet ${JENKINS_HOME}/workspace/results_${ID}/rpm-from/${COMPONENT}/src/binary
+      mkdir -p ${JENKINS_HOME}/workspace/results_${ID}/rpm-from/${COMPONENT}/src/binary/cni/
+      cp ${JENKINS_HOME}/workspace/results_${ID}/kubelet/cni/* ${JENKINS_HOME}/workspace/results_${ID}/rpm-from/${COMPONENT}/src/binary/cni/
+
+      mkdir -p ${JENKINS_HOME}/workspace/results_${ID}/rpm-from/${COMPONENT}/src/cni-config
+      cp ${JENKINS_HOME}/workspace/src_${ID}/docker-build/${COMPONENT}/00-danm.conf ${JENKINS_HOME}/workspace/results_${ID}/rpm-from/${COMPONENT}/src/cni-config
+      cp ${JENKINS_HOME}/workspace/src_${ID}/docker-build/${COMPONENT}/flannel.conf ${JENKINS_HOME}/workspace/results_${ID}/rpm-from/${COMPONENT}/src/cni-config
+
+    elif [[ "${COMPONENT}" == "cpupooler" ]]
+    then
+      mkdir -p ${JENKINS_HOME}/workspace/results_${ID}/cpu-process-starter
+      dockerlogin
+      source ${JENKINS_HOME}/workspace/src_${ID}/build-config-files/version.sh
+      set +e
+      docker run \
+      -i \
+      --rm \
+      --net=host \
+      --privileged \
+      --cap-add=SYS_ADMIN \
+      --pid=host \
+      `env | grep VERSION | sed 's/^/-e /g'` \
+      -v /root/jenkins_ws/workspace/src_${ID}/docker-build/build-tools/process-starter/:/entrypoint/ \
+      -v /root/jenkins_ws/workspace/results_${ID}/cpu-process-starter/:/results/ \
+      ${ARTY_URL}/tools/cpu_process_starter_builder:1.0.5
+      set -e
+      cp ${JENKINS_HOME}/workspace/results_${ID}/cpu-process-starter/* ${JENKINS_HOME}/workspace/results_${ID}/rpm-from/${COMPONENT}/src/binary/
+    fi
+  else
+    cp ${JENKINS_HOME}/workspace/results_${ID}/images/${COMPONENT}* ${JENKINS_HOME}/workspace/results_${ID}/rpm-from/${COMPONENT}/src/docker/
+  fi
+  ${JENKINS_HOME}/workspace/src_${ID}/scripts/rpm-stage/rpm-build.sh
+}
