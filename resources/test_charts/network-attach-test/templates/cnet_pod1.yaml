@@ -1,0 +1,18 @@
+apiVersion: danm.k8s.io/v1
+kind: ClusterNetwork
+metadata:
+  name: cnet-pod1
+spec:
+  NetworkID: cnet-pod1
+  NetworkType: ipvlan
+  Options:
+    host_device: {{ .Values.infra_int_if }}
+    vxlan: 51
+    container_prefix: ext
+    rt_tables: 100
+    routes:
+      10.0.0.0/32: 10.5.1.1
+    cidr: 10.5.1.0/16
+    allocation_pool:
+      start: 10.5.1.11
+      end: 10.5.1.20

@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: danmnet-pods7-1
+  namespace: default
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: alpine
+  template:
+    metadata:
+      labels:
+        app: alpine
+      annotations:
+        danm.k8s.io/interfaces: |
+          [
+            {
+              "clusterNetwork":"cnet-pod4", "ip":"dynamic"
+            },
+            {
+              "clusterNetwork":"cnet-pod3", "ip":"dynamic"
+            }
+          ]
+    spec:
+      containers:
+      - name: alpine
+        image: registry.kube-system.svc.nokia.net:5555/crf/alpine_test:latest
+        imagePullPolicy: IfNotPresent
+        command: ["/usr/bin/dumb-init", "-c", "--"]
+        args: ["sleep", "6000"]

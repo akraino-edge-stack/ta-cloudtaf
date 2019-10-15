@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: http-traffic-gen
+  namespace: default
+spec:
+  template:
+    metadata:
+      name:  http-traffic-gen
+    spec:
+      containers:
+      - name: http-traffic-gen
+        image: registry.kube-system.svc.nokia.net:5555/crf/http-traffic-gen:latest
+      restartPolicy: Never
