@@ -1,0 +1,4 @@
+pool_req: "1"
+proc_req: 1
+replicas: 1
+nodename: caas_worker1
