@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6a7cb27d_afacacb3",
+        "filename": "testcases/test-registry/test-registry.robot",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 186
+      },
+      "writtenOn": "2019-10-17T07:52:28Z",
+      "side": 1,
+      "message": "This runs every commands on the target system, my guess is the intention was here to pull and save image on the local machine, and copy the image to the remote system.",
+      "range": {
+        "startLine": 36,
+        "startChar": 4,
+        "endLine": 40,
+        "endChar": 105
+      },
+      "revId": "9d14669fd5303aaefb829a20e1e8d7ac2e8d86eb",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e268ab4_bcb25656",
+        "filename": "testcases/test-registry/test-registry.robot",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 186
+      },
+      "writtenOn": "2019-10-17T07:52:28Z",
+      "side": 1,
+      "message": "Better to call it \"local images\", \"local cache\" or \"image cache\".",
+      "range": {
+        "startLine": 47,
+        "startChar": 40,
+        "endLine": 47,
+        "endChar": 49
+      },
+      "revId": "9d14669fd5303aaefb829a20e1e8d7ac2e8d86eb",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    }
+  ]
+}
