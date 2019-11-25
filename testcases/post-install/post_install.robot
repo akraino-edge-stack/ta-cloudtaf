@@ -34,7 +34,7 @@ Looking up LF Jenkins successful build iso number
     log    ${out}
 
 Testing Docker
-    ${search}=     set variable    Docker version 19.03.2
+    ${search}=     set variable    Docker version 19.03.3
     ${command}=    set variable    docker --version
     ${out}=    ssh.Execute Command    ${command}    controller-1
     log    ${out}
