@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "181ded49_1d8567b5",
+        "filename": "testcases/basic-functional/ntpd.robot",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 217
+      },
+      "writtenOn": "2019-11-29T10:16:02Z",
+      "side": 1,
+      "message": "Hi, where this value comes from is there specificatoin or requirement where this value is defined?",
+      "range": {
+        "startLine": 25,
+        "startChar": 19,
+        "endLine": 25,
+        "endChar": 21
+      },
+      "revId": "a65003460bb1cdef63cffbde27572221711c64f1",
+      "serverId": "4cada01b-0314-4fe0-84a1-f9ddc89863f9",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "66eda3fe_db11aa4a",
         "filename": "testcases/basic-functional/ntpd.robot",
         "patchSetId": 4
