@@ -6,7 +6,7 @@ crl.remotescript==1.0.1
 crl.remotesession==1.2.1
 crl.rfcli==1.1.1
 crl.threadverify==1.0
-cryptography==2.6.1
+cryptography==3.2
 enum34==1.1.6
 future==0.17.1
 ipaddress==1.0.22
